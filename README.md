@@ -33,3 +33,6 @@ In addition, try to configure the size of pinBoard with css style.
 </script>
 </body>
 ```
+## License
+[MIT licensed](LICENSE).
+Free of Charge
