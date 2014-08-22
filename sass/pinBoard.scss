@@ -1,0 +1,65 @@
+@mixin buttonGroup() {
+			   	width:24px;
+		   		height:20px;
+		   		background-repeat: no-repeat;
+		   		margin-right: 0.3em;
+		   		border: none;
+		   		overflow: none;
+}
+
+.pinBoard {
+	width:600px;
+	height:350px;
+	display: block;
+	margin:0 auto;
+
+	div {
+		//Loop through the button image
+		$i : 1;
+		@each $image in pin, pencil, back, trashcan, download, upload {
+		  	button:nth-child(#{$i}):before {
+		  		content: url("../img/pinboard/#{$image}.png");
+		  	}
+		  	button:nth-child(#{$i}) {
+		   		background: transparent;
+		   		@include buttonGroup();
+		  	}
+		  	$i : $i + 1;
+		}
+
+		//Shift it away from main screen
+		input[type="file"] {
+			 position:absolute;
+			 top:-100px;
+		}
+
+		.pinBoard-color {
+			float:right;
+			margin-top:-1em;
+			border-radius: 0;
+			max-width:0.1em;
+			list-style-type: none;
+			position: relative;
+			top:1.5em;
+			@include buttonGroup();
+
+			li {
+				position: relative;
+				left:-2em;
+				top:100%;
+				height:0.8em;
+				min-width: 1em;
+			}
+		}
+	}
+
+	input[type="range"] {
+		display: inline;
+	}
+
+	canvas {
+		border : 1px solid #f2efdf; 
+		cursor:crosshair;
+	}
+}
+
