@@ -9,7 +9,9 @@ Jquery is required
 
 ## Installation
 First, embedded the js and css fil into html file.
+
 Then initiate function pinBoard with target DOM element as parameter, and it can be anyname.
+
 In addition, try to configure the size of pinBoard with css style.
 
 
@@ -35,4 +37,5 @@ In addition, try to configure the size of pinBoard with css style.
 ```
 ## License
 [MIT licensed](LICENSE).
+
 Free of Charge
