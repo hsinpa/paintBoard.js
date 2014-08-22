@@ -2,14 +2,12 @@
 .pinBoard {
   width: 600px;
   height: 350px;
-  display: block;
-  margin: 0 auto;
 }
-/* line 20, ../sass/pinBoard.scss */
+/* line 19, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(1):before {
   content: url("../img/pinboard/pin.png");
 }
-/* line 23, ../sass/pinBoard.scss */
+/* line 22, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(1) {
   background: transparent;
   width: 24px;
@@ -19,11 +17,11 @@
   border: none;
   overflow: none;
 }
-/* line 20, ../sass/pinBoard.scss */
+/* line 19, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(2):before {
   content: url("../img/pinboard/pencil.png");
 }
-/* line 23, ../sass/pinBoard.scss */
+/* line 22, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(2) {
   background: transparent;
   width: 24px;
@@ -33,11 +31,11 @@
   border: none;
   overflow: none;
 }
-/* line 20, ../sass/pinBoard.scss */
+/* line 19, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(3):before {
   content: url("../img/pinboard/back.png");
 }
-/* line 23, ../sass/pinBoard.scss */
+/* line 22, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(3) {
   background: transparent;
   width: 24px;
@@ -47,11 +45,11 @@
   border: none;
   overflow: none;
 }
-/* line 20, ../sass/pinBoard.scss */
+/* line 19, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(4):before {
   content: url("../img/pinboard/trashcan.png");
 }
-/* line 23, ../sass/pinBoard.scss */
+/* line 22, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(4) {
   background: transparent;
   width: 24px;
@@ -61,11 +59,11 @@
   border: none;
   overflow: none;
 }
-/* line 20, ../sass/pinBoard.scss */
+/* line 19, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(5):before {
   content: url("../img/pinboard/download.png");
 }
-/* line 23, ../sass/pinBoard.scss */
+/* line 22, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(5) {
   background: transparent;
   width: 24px;
@@ -75,11 +73,11 @@
   border: none;
   overflow: none;
 }
-/* line 20, ../sass/pinBoard.scss */
+/* line 19, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(6):before {
   content: url("../img/pinboard/upload.png");
 }
-/* line 23, ../sass/pinBoard.scss */
+/* line 22, ../sass/pinBoard.scss */
 .pinBoard div button:nth-child(6) {
   background: transparent;
   width: 24px;
@@ -89,12 +87,12 @@
   border: none;
   overflow: none;
 }
-/* line 31, ../sass/pinBoard.scss */
+/* line 30, ../sass/pinBoard.scss */
 .pinBoard div input[type="file"] {
   position: absolute;
   top: -100px;
 }
-/* line 36, ../sass/pinBoard.scss */
+/* line 35, ../sass/pinBoard.scss */
 .pinBoard div .pinBoard-color {
   float: right;
   margin-top: -1em;
@@ -110,7 +108,7 @@
   border: none;
   overflow: none;
 }
-/* line 46, ../sass/pinBoard.scss */
+/* line 45, ../sass/pinBoard.scss */
 .pinBoard div .pinBoard-color li {
   position: relative;
   left: -2em;
@@ -118,11 +116,11 @@
   height: 0.8em;
   min-width: 1em;
 }
-/* line 56, ../sass/pinBoard.scss */
+/* line 55, ../sass/pinBoard.scss */
 .pinBoard input[type="range"] {
   display: inline;
 }
-/* line 60, ../sass/pinBoard.scss */
+/* line 59, ../sass/pinBoard.scss */
 .pinBoard canvas {
   border: 1px solid #f2efdf;
   cursor: crosshair;
