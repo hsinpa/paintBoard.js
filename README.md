@@ -1,7 +1,7 @@
-pinBoard.js
+paintBoard.js
 ===========
 
-A easy setup HTML5 canvas pin(drawing) board 
+A easy setup HTML5 canvas paint(pin) board 
 * [See Demo Here](http://hsin-hsinpa.rhcloud.com/project/53f9879cfcaf300000b64590),
 
 ## Requirements
