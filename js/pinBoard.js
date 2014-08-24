@@ -60,7 +60,6 @@ var pinBoard = (function($) {
 
 		    canvas = pinBoardCover.find("canvas");
 		    context = canvas[0].getContext('2d');
-
 		}
 	};
 
@@ -76,8 +75,7 @@ var pinBoard = (function($) {
     }
 
     /* =========================    User Interaction (Events) =================================*/
-	    $(function() {
-	    	if (pinBoardCover) {
+	function Init() {
 		    //Pick Functionality
 		    pinBoardCover.on("click", "button", function () {
 		    	switch($(this).attr("functionality")) {
@@ -158,7 +156,7 @@ var pinBoard = (function($) {
 				}
 			});
 		}
-		});
+	
 	//END OF User Interactions
 
 	var Tools = {
@@ -253,14 +251,16 @@ var pinBoard = (function($) {
 
 	return function (DOMelement) {
 			pinBoardCover = $(DOMelement);
+			if (pinBoardCover && pinBoardCover.length != 0) {
+				height = pinBoardCover.height();
+				width = pinBoardCover.width();
+				pinBoardCover.css("height", height);
 
-			height = pinBoardCover.height();
-			width = pinBoardCover.width();
-			pinBoardCover.css("height", height);
-
-			//Additional 45px for colorpanel
-			pinBoardCover.css("width", width+45);
-			Environment.buildCanvas();
+				//Additional 45px for colorpanel
+				pinBoardCover.css("width", width+45);
+				Environment.buildCanvas();
+				Init();
+		}
 	}
 
 })(jQuery);
