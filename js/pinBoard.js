@@ -249,8 +249,8 @@ var pinBoard = (function($) {
 	}//END OF BACKWARD FUNCTION
 
 
-	return function (DOMelement) {
-			pinBoardCover = $(DOMelement);
+	return function () {
+			pinBoardCover = $(".pinBoard");
 			if (pinBoardCover && pinBoardCover.length != 0) {
 				height = pinBoardCover.height();
 				width = pinBoardCover.width();
