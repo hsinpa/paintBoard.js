@@ -8,11 +8,11 @@ A easy setup HTML5 canvas pin(drawing) board
 Jquery is required
 
 ## Installation
-First, embedded the js and css fil into html file.
+First, embedded the js, css and image file into html file.
 
-Then initiate function pinBoard with target DOM element as parameter, and it can be anyname.
+Then to initiate function, call pinBoard() first, and put class="pinBoard" to target DOM element.
 
-In addition, try to configure the size of pinBoard with css style.
+In addition, try to configure the size of pinBoard with css style and include the button image to folder.
 
 
 ```html
@@ -31,7 +31,7 @@ In addition, try to configure the size of pinBoard with css style.
 <script src="js/pinBoard.min.js"></script>
 
 <script>
-  pinBoard('.pinBoard');
+  pinBoard();
 </script>
 </body>
 ```
