@@ -17,7 +17,7 @@ var pinBoard = (function($) {
 		optionColor = ["#2ecc71", "#27ae60", "#3498db", "#2980b9", "#9b59b6", "#8e44ad", "#f1c40f", "#f39c12", "#e67e22", "#d35400",
 				"#e74c3c", "#c0392b", "#34495e", "#ecf0f1", "#bdc3c7", "#95a5a6", "#7f8c8d"];
 
-	/*Prepare Stage 
+	/*Prepare Stage
 	** Build the infrastructure
 	*/
 
@@ -76,87 +76,90 @@ var pinBoard = (function($) {
     }
 
     /* =========================    User Interaction (Events) =================================*/
-    $(function() {
-	    //Pick Functionality
-	    pinBoardCover.on("click", "button", function () {
-	    	switch($(this).attr("functionality")) {
-	    		case "backward":
-	    			Tools.backward();
-	    		break;
+	    $(function() {
+	    	if (pinBoardCover) {
+		    //Pick Functionality
+		    pinBoardCover.on("click", "button", function () {
+		    	switch($(this).attr("functionality")) {
+		    		case "backward":
+		    			Tools.backward();
+		    		break;
 
-	    		case "trashcan":
-	    			Tools.trashcan();
-	    		break;
+		    		case "trashcan":
+		    			Tools.trashcan();
+		    		break;
 
-	    		case "download":
-	    			Tools.download();
-	    		break;
+		    		case "download":
+		    			Tools.download();
+		    		break;
 
-	    		case "upload":
-	    			$('input[type=file]').trigger('click');    
-	    		break;
+		    		case "upload":
+		    			$('input[type=file]').trigger('click');
+		    		break;
 
-	    		default:
-	    		functionality = $(this).attr("functionality");
-	    	}
-	    });
+		    		default:
+		    		functionality = $(this).attr("functionality");
+		    	}
+		    });
 
-	    //Handle image Upload
-	    pinBoardCover.on("change", "input[type=file]", function () {
-	    		Tools.upload(this.files[0]);
-	    });
+		    //Handle image Upload
+		    pinBoardCover.on("change", "input[type=file]", function () {
+		    		Tools.upload(this.files[0]);
+		    });
 
-	    //Select Pencil Size
-	    pinBoardCover.on("mouseup", "input[type=range]", function () {
-	    	pencilSize = $(this).val();
-	    });
+		    //Select Pencil Size
+		    pinBoardCover.on("mouseup", "input[type=range]", function () {
+		    	pencilSize = $(this).val();
+		    });
 
-		//Pick Color
-		pinBoardCover.on("click", ".pinBoard-color li", function () {
-			color = $(this).attr("value");
-			$(".pinBoard-color li").css("border", "none");
-			$(this).css("border-right", "5px solid black");
-	    });
+			//Pick Color
+			pinBoardCover.on("click", ".pinBoard-color li", function () {
+				color = $(this).attr("value");
+				$(".pinBoard-color li").css("border", "none");
+				$(this).css("border-right", "5px solid black");
+		    });
 
-	    //CORE FUNCTION 
-		pinBoardCover.on("mousedown", "canvas",function (evt) {
-			var mousePos = getMousePos(this, evt);
+		    //CORE FUNCTION
+			pinBoardCover.on("mousedown", "canvas",function (evt) {
+				var mousePos = getMousePos(this, evt);
 
-			switch(functionality) {
-				case 'pin' :
-				    //Pin Something
-				    Tools.createPin(mousePos.x, mousePos.y, color);
-					pinPos.push({ 'x' : mousePos.x, 'y': mousePos.y, 'color': color});
-				break;
+				switch(functionality) {
+					case 'pin' :
+					    //Pin Something
+					    Tools.createPin(mousePos.x, mousePos.y, color);
+						pinPos.push({ 'x' : mousePos.x, 'y': mousePos.y, 'color': color});
+					break;
 
-				case 'pencil' :
-					//Set pos to tempPencilPos and push it topencilpos when mouseUp
-						isDown = true;
-						context.lineWidth = pencilSize;
-						context.lineCap = 'round';
-						context.beginPath();
-						context.moveTo(mousePos.x, mousePos.y);
-				    	pencilPos.push([{ 'x' : mousePos.x, 'y': mousePos.y, 'color': color, "lineWidth" : pencilSize}]);
+					case 'pencil' :
+						//Set pos to tempPencilPos and push it topencilpos when mouseUp
+							isDown = true;
+							context.lineWidth = pencilSize;
+							context.lineCap = 'round';
+							context.beginPath();
+							context.moveTo(mousePos.x, mousePos.y);
+					    	pencilPos.push([{ 'x' : mousePos.x, 'y': mousePos.y, 'color': color, "lineWidth" : pencilSize}]);
 
-					pinBoardCover.on("mousemove", "canvas",function (evt) {
-						if (isDown) {
-							var lastIndex = pencilPos.length -1;		
-					    	mousePos = getMousePos(this, evt);
-							context.lineTo(mousePos.x, mousePos.y);
-							context.strokeStyle = color;
-							context.stroke();
-					    	pencilPos[lastIndex].push({ 'x' : mousePos.x, 'y': mousePos.y});
-					    }
-					});
+						pinBoardCover.on("mousemove", "canvas",function (evt) {
+							if (isDown) {
+								var lastIndex = pencilPos.length -1;
+						    	mousePos = getMousePos(this, evt);
+								context.lineTo(mousePos.x, mousePos.y);
+								context.strokeStyle = color;
+								context.stroke();
+						    	pencilPos[lastIndex].push({ 'x' : mousePos.x, 'y': mousePos.y});
+						    }
+						});
 
-				    $(document).on("mouseup",function () {
-						isDown = false;
-						context.closePath();
-				   	});
-				break;
-			}
+					    $(document).on("mouseup",function () {
+							isDown = false;
+							context.closePath();
+					   	});
+					break;
+				}
+			});
+		}
 		});
-	});//END OF User Interactions
+	//END OF User Interactions
 
 	var Tools = {
 		createPin : function (x, y, color) {
@@ -237,7 +240,7 @@ var pinBoard = (function($) {
 			var reader = new FileReader(),
     			image  = new Image();
 
-    			reader.readAsDataURL(file);  
+    			reader.readAsDataURL(file);
     		reader.onload = function(_file) {
     			image.src = _file.target.result;
     			image.onload = function() {
@@ -247,7 +250,7 @@ var pinBoard = (function($) {
 		}
 	}//END OF BACKWARD FUNCTION
 
-	
+
 	return function (DOMelement) {
 			pinBoardCover = $(DOMelement);
 
