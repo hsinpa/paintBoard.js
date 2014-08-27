@@ -134,8 +134,8 @@ var pinBoard = (function($) {
 							context.lineWidth = pencilSize;
 							context.lineCap = 'round';
 							context.beginPath();
-							context.moveTo(mousePos.x, mousePos.y);
-							context.lineTo(mousePos.x, mousePos.y);
+							context.moveTo(mousePos.x-0.01, mousePos.y-0.01);
+							context.lineTo(mousePos.x , mousePos.y );
 							context.strokeStyle = color;
 							context.stroke();
 					    	pencilPos.push([{ 'x' : mousePos.x, 'y': mousePos.y, 'color': color, "lineWidth" : pencilSize}]);
