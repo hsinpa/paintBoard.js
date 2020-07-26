@@ -2,7 +2,7 @@ paintBoard.js
 ===========
 
 A easy setup HTML5 canvas paint(pin) board 
-* [See Demo Here](http://hsin-hsinpa.rhcloud.com/project/53f9879cfcaf300000b64590),
+* [See Demo Here](http://hsinpa.github.io/paintBoard.js/),
 
 ## Requirements
 Jquery is required
